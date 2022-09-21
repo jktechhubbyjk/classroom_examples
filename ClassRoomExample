@@ -1,0 +1,80 @@
+package com.cursors;
+
+public class Student {
+	 int marks;
+	 String name;
+	 int age;
+	
+	public Student(int marks, String name, int age) {
+		this.marks = marks;
+		this.name = name;
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [marks=" + marks + ", name=" + name + ", age=" + age + "]";
+	}
+
+}
+******************************************************************8********************************
+
+package com.cursors;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class StudentFinder {
+	public static void main(String str[]) {
+
+		Student s1 = new Student(65, "Raj", 21);
+		Student s2 = new Student(55, "Priyanka", 22);
+		Student s3 = new Student(61, "Shruti", 20);
+		Student s4 = new Student(15, "Nutan", 20);
+		Student s5 = new Student(35, "Shree", 19);
+		Student s6 = new Student(68, "Neha", 21);
+		Student s7 = new Student(45, "Kalyani", 25);
+		Student s8 = new Student(23, "Sonal", 23);
+		Student s9 = new Student(89, "Rahul", 21);
+
+		ArrayList<Student> studList = new ArrayList<>();
+		studList.add(s1);
+		studList.add(s2);
+		studList.add(s3);
+		studList.add(s4);
+		studList.add(s5);
+		studList.add(s6);
+		studList.add(s7);
+		studList.add(s8);
+		studList.add(s9);
+
+		System.out.println(studList);
+
+		// iterator
+		// Iterator<Student> itr = studList.iterator();
+
+		/*
+		 * while (itr.hasNext()) { Student std = itr.next(); if (std.marks >= 60) {
+		 * System.out.println(std); } }
+		 */
+
+		Iterator<Student> itr1 = studList.iterator();
+
+		while (itr1.hasNext()) {
+			Student std = itr1.next();
+			if (std.name.startsWith("S")) {
+				System.out.println(std);
+			}
+		}
+
+		System.out.println("*************Using Enhanced loop***********");
+
+		for (Student s : studList) {
+			if (s.name.startsWith("S")) {
+				System.out.println(s);
+			}
+		}
+
+	}
+
+}
